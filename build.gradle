@@ -30,7 +30,7 @@ task clean(type: Delete) {
 task copyTemplateGradle(type: Copy) {
     from 'template_gradle/'
 //    into 'template_gradle1/'
-    into '/Applications/Android Studio 3.1 Preview.app/Contents/plugins/android/lib/templates/gradle-projects/NewAndroidProject/root'
+    into '/Applications/Android Studio 3.1 Preview.app/Contents/plugins/android/lib/templates/gradle-projects/NewAndroidProject/'
 }
 
 task copyTemplateActivity(type: Copy) {
@@ -39,6 +39,9 @@ task copyTemplateActivity(type: Copy) {
     into '/Applications/Android Studio 3.1 Preview.app/Contents/plugins/android/lib/templates/activities/'
 }
 
+copyTemplateActivity.doFirst {
+    clean.execute()
+}
 copyTemplateActivity.doLast {
     copyTemplateGradle.execute()
 }
