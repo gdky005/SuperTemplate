@@ -25,3 +25,9 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+task copyTemplate(type: Copy) {
+    from 'template/'
+    into '/Applications/Android Studio 3.1 Preview.app/Contents/plugins/android/lib/templates/activities/'
+//    into '/Users/WangQing/Android_Pro/SuperTemplate/template2'
+}
